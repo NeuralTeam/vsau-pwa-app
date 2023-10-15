@@ -11,6 +11,7 @@
 /node_modules
 /venv
 .env
+/out
 
 # Binary
 *.so
