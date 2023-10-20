@@ -7,7 +7,6 @@ import { useState } from 'react'
 
 import { facultyTypes } from '@/entities/facultyTypes'
 import Delete from '@/entities/icons/Delete'
-import { capitalize } from './functions/capitalize'
 import { dayScheduleConstructor } from './functions/getApi/scheduleArrayMiddleware'
 
 export interface IGroup {
@@ -25,7 +24,11 @@ const Search = () => {
 	const [group, setGroup] = useState<IGroup[]>()
 	const [groupName, setGroupName] = useState<string>()
 
-	let Groups: any[] = []
+	const mode = process.env.NODE_ENV
+	const localURL = 'http://localhost:8000/api/v1/schedule/groups?search='
+	const prodURL =
+		'https://schedule.neuralteam.ru/api/v1/schedule/groups?search='
+
 	const groupHandler = (id: string, name: string) => {
 		setGroupId(id)
 		dayScheduleConstructor(id)
@@ -46,11 +49,7 @@ const Search = () => {
 		if (text.length >= 1) {
 			setGroup(
 				await axios
-					.get(
-						`http://localhost:8000/api/v1/schedule/groups?search=${capitalize(
-							text
-						)}`
-					)
+					.get(mode === 'development' ? localURL + text : prodURL + text)
 					.then(data => data.data)
 			)
 		}
