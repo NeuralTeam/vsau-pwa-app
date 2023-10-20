@@ -26,7 +26,7 @@ const SheduleWidget = () => {
 	return (
 		<div className=' h-full'>
 			<div className='flex items-start mx-2 mt-0 gap-1 text-center justify-center font-semibold text'>
-				<div className='bg-bg-header rounded-b-lg  px-3 w-1/2 py-2'>
+				<div className='dark:bg-dark-dark bg-light-blue text-white  rounded-b-lg  px-3 w-1/2 py-2'>
 					{weekData.day}
 				</div>
 			</div>
@@ -35,11 +35,11 @@ const SheduleWidget = () => {
 				<span className='text-3xl font-semibold'>{groupName}</span>
 			</div>
 			<div className='w-10/12 mx-auto  my-5 py-1  relative '>
-				{/* <div className='absolute w-full h-[36px] bg-bg-header left-0 top-0 opacity-25'></div> */}
+				{/* <div className='absolute w-full h-[36px] dark:bg-dark-dark bg-light-light left-0 top-0 opacity-25'></div> */}
 				<div
 					className={`absolute rounded-lg w-1/2 h-full top-0 ${
 						activeParity === 'numerator' ? 'left-[0%]' : 'left-[50%]'
-					}   text-center bg-bg-header transition-all duration-200 d`}
+					}   text-center dark:bg-dark-dark bg-light-light transition-all duration-200 d`}
 				></div>
 				<div className=' w-full z-20 flex  items-center text-center relative gap-0 justify-between h-full'>
 					<div
@@ -47,7 +47,7 @@ const SheduleWidget = () => {
 						className='w-full h-full relative py-1 px-3 text-center rounded-lg '
 					>
 						{weekInit.parityEng === 'numerator' && (
-							<div className='absolute left-5 top-2 rounded-full w-3 h-3 bg-border-week'></div>
+							<div className='absolute left-5 top-2 rounded-full w-3 h-3 bg-dark:dark-green dark:bg-dark-green bg-light-blue'></div>
 						)}
 						Числитель
 					</div>
@@ -57,7 +57,7 @@ const SheduleWidget = () => {
 						className='w-full h-full py-1 px-3 relative text-center  border-1 border-solid'
 					>
 						{weekInit.parityEng === 'denominator' && (
-							<div className='absolute left-2 top-2 rounded-full w-3 h-3 bg-border-week'></div>
+							<div className='absolute left-2 top-2 rounded-full w-3 h-3 bg-dark:dark-green dark:bg-dark-green bg-light-blue'></div>
 						)}
 						Знаменатель
 					</div>

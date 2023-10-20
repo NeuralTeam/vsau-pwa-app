@@ -5,22 +5,27 @@ import { useState } from 'react'
 const Feedback = () => {
 	const [open, setOpen] = useState<boolean>(false)
 	return (
-		<div className=' duration-200 bg-red-reset p-3 text-center rounded-full'>
+		<div className='  transition-all p-0 text-center text-white'>
 			{!open ? (
 				<div
-					className='w-4 h-4 flex items-center justify-center transition-all text-xl aspect-square text-center'
+					style={{ boxShadow: '0px 0px 10px 5px #bd352e' }}
+					className='w-10 h-10 flex items-center  bg-red  mb-1 rounded-full justify-center transition-all text-2xl aspect-square text-center'
 					onClick={() => setOpen(true)}
 				>
 					!
 				</div>
 			) : (
 				<div>
-					<div className='w-full h-6 flex items-center justify-center gap-2'>
-						<Link href='https://t.me/vsau_unofficial/4 '>
+					<div className='w-72 h-10 mb-1 rounded-lg flex items-center transition-all justify-center gap-2'>
+						<Link
+							style={{ boxShadow: '0px 0px 10px 3px #bd352e' }}
+							className='bg-red px-6 py-2 rounded-lg'
+							href='https://t.me/vsau_unofficial/4 '
+						>
 							Сообщить о проблеме
 						</Link>
-						<p onClick={() => setOpen(false)}>
-							<Delete fill='white' width={20} />
+						<p className='ml-2' onClick={() => setOpen(false)}>
+							<Delete fill='#bd352e' width={30} />
 						</p>
 					</div>
 				</div>

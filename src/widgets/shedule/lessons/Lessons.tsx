@@ -76,15 +76,15 @@ const Lessons = ({ weekday, parity }: any) => {
 	console.log()
 
 	return (
-		<div className='w-full'>
+		<div className='w-full '>
 			{isRender ? (
 				<div className='flex flex-col w-full h-[100%]   gap-y-2'>
 					{weekDays ? (
 						parity.activeParity == 'numerator' ? (
 							weekDays[weekday - 1].lessons !== null ? (
 								weekDays[weekday - 1]?.lessons?.numerator.map((item, index) => (
-									<div className='transition-all' key={index}>
-										<div className='p-2 bg-bg-header relative rounded-lg w-[90%] mx-auto'>
+									<div className='transition-all last:pb-52' key={index}>
+										<div className='p-2 dark:bg-dark-dark bg-light-light relative rounded-lg w-[90%] mx-auto'>
 											<div className=' w-full text-left text-sm '>
 												<div className=''>
 													{item.time_start} - {item.time_end}
@@ -97,7 +97,7 @@ const Lessons = ({ weekday, parity }: any) => {
 													{item.room === 'NONE' ? (
 														''
 													) : (
-														<div className='mx-3 px-2 py-1 bg-bg-main rounded-lg'>
+														<div className='mx-3 px-2 py-1 dark:bg-dark-main bg-light-main rounded-lg'>
 															{item.room}
 														</div>
 													)}
@@ -109,7 +109,7 @@ const Lessons = ({ weekday, parity }: any) => {
 															'#c47929'
 														}`,
 													}}
-													className={`absolute  font-semibold text-sm top-1 right-1 flex items-center justify-center bg-[] w-14 h-6 rounded-lg`}
+													className={`absolute  text-white font-semibold text-sm top-1 right-1 flex items-center justify-center bg-[] w-14 h-6 rounded-lg`}
 												>
 													{types.find(i => i.type === item.type)?.name || 'Общ'}
 												</div>
@@ -122,15 +122,15 @@ const Lessons = ({ weekday, parity }: any) => {
 								))
 							) : (
 								<div className='w-full h-[30dvh] absolute bottom-0 justify-center items-center text-center text-4xl'>
-									<div className='bg-bg-header py-3 px-6 rounded-lg w-6/12 mx-auto'>
+									<div className='dark:bg-dark-dark bg-light-light py-3 px-6 rounded-lg w-6/12 mx-auto'>
 										Нет пар
 									</div>
 								</div>
 							)
 						) : weekDays[weekday - 1].lessons !== null ? (
 							weekDays[weekday - 1]?.lessons?.denominator.map((item, index) => (
-								<div className='transition-all' key={index}>
-									<div className='p-2 bg-bg-header relative rounded-lg w-[90%] mx-auto'>
+								<div className='transition-all last:pb-52' key={index}>
+									<div className='p-2 dark:bg-dark-dark bg-light-light relative rounded-lg w-[90%] mx-auto'>
 										<div className=' w-full text-left text-sm '>
 											<div className=''>
 												{item.time_start} - {item.time_end}
@@ -142,7 +142,7 @@ const Lessons = ({ weekday, parity }: any) => {
 												{item.room === 'NONE' ? (
 													''
 												) : (
-													<div className='mx-3 px-2 py-1 bg-bg-main rounded-lg'>
+													<div className='mx-3 px-2 py-1 dark:bg-dark-main bg-light-main rounded-lg'>
 														{item.room}
 													</div>
 												)}
@@ -154,7 +154,7 @@ const Lessons = ({ weekday, parity }: any) => {
 														'#c47929'
 													}`,
 												}}
-												className={`absolute  font-semibold text-sm top-1 right-1 flex items-center justify-center bg-[] w-14 h-6 rounded-lg`}
+												className={`absolute text-white  font-semibold text-sm top-1 right-1 flex items-center justify-center bg-[] w-14 h-6 rounded-lg`}
 											>
 												{types.find(i => i.type === item.type)?.name || 'Общ'}
 											</div>
@@ -167,17 +167,17 @@ const Lessons = ({ weekday, parity }: any) => {
 							))
 						) : (
 							<div className='w-full h-[30dvh] absolute bottom-0 justify-center items-center text-center text-4xl'>
-								<div className='bg-bg-header py-3 px-6 rounded-lg w-6/12 mx-auto'>
+								<div className='dark:bg-dark-dark bg-light-light py-3 px-6 rounded-lg w-6/12 mx-auto'>
 									Нет пар
 								</div>
 							</div>
 						)
 					) : (
 						<div className=''>
-							<div className='w-[90%] mx-auto mb-3 h-32 rounded-lg bg-bg-header animation-skeleton'>
+							<div className='w-[90%] mx-auto mb-3 h-32 rounded-lg dark:bg-dark-dark bg-light-light animation-skeleton'>
 								<div className='animation-skeleton-line'></div>
 							</div>
-							<div className='w-[90%] mx-auto h-32 rounded-lg bg-bg-header animation-skeleton'>
+							<div className='w-[90%] mx-auto h-32 rounded-lg dark:bg-dark-dark bg-light-light animation-skeleton'>
 								<div className='animation-skeleton-line  bg-light-blue'></div>
 							</div>
 						</div>

@@ -1,5 +1,5 @@
 import moment from 'moment'
-moment().locale('ru')
+import 'moment/locale/ru'
 
 const weekNum = Number(moment().format('w'))
 let parityRu = weekNum % 2 !== 0 ? 'Числитель' : 'Знаменатель'

@@ -100,7 +100,7 @@ const Week = (activeParity: any) => {
 
 	return (
 		<div className='w-full p-0 h-[60vh] relative '>
-			{/*<div className="w-10 h-10 bg-red-reset absolute bottom-0 "></div>*/}
+			{/*<div className="w-10 h-10 bg-red absolute bottom-0 "></div>*/}
 			{weekDays ? (
 				<div className='flex  w-full justify-center items-center gap-x-1'>
 					{weekDays.map((item, index) => (
@@ -113,9 +113,9 @@ const Week = (activeParity: any) => {
 								onClick={() => activeItem(item.name, item.activeState)}
 								className={`  ${
 									item.name.toLowerCase() === weekData.dayOfWeek
-										? 'border-t-4 border-border-week-today'
-										: 'border-t-4 border-border-week'
-								} shadow-lg bg-bg-header  text-center ${
+										? 'border-t-4 border-azure'
+										: 'border-t-4 border-light-blue dark:border-dark-green'
+								} shadow-lg dark:bg-dark-dark bg-light-light  text-center ${
 									item.name.toLowerCase() == stateDay
 										? 'w-[110px]'
 										: ' w-[40px]'

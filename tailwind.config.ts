@@ -1,36 +1,35 @@
-import type {Config} from 'tailwindcss'
+import type { Config } from 'tailwindcss'
 
 const config: Config = {
-    content: [
-        './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-        './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-        './src/app/**/*.{js,ts,jsx,tsx,mdx}',
-        './src/**/**/*.{js,ts,jsx,tsx,mdx}',
-    ],
-    theme: {
-        colors: {
-            "bg-main": '#323232',
-            "light-blue": "#7dc8fb",
-            'bg-header': '#212121',
-            "dark-blue": "#042484",
-            "cyan-dark": "0689e2",
-            'azure': "#035a95",
-            "black": '#000',
-            "ai": '#2888ff',
-            "white": "#fff",
-            'border-week-today': '#14FFEC',
-            "border-week": "#084C4F",
-            "red-reset": "#E4473F",
-            "green-reset": "#2D8F38"
-        },
-        extend: {
-            backgroundImage: {
-                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                'gradient-conic':
-                    'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-            },
-        },
-    },
-    plugins: [],
+	content: [
+		'./src/pages/**/*.{js,ts,jsx,tsx,mdx}',
+		'./src/components/**/*.{js,ts,jsx,tsx,mdx}',
+		'./src/app/**/*.{js,ts,jsx,tsx,mdx}',
+		'./src/**/**/*.{js,ts,jsx,tsx,mdx}',
+	],
+
+	theme: {
+		colors: {
+			'dark-main': '#323232',
+			'dark-dark': '#212121',
+			white: '#fff',
+			azure: '#14FFEC',
+			'dark-green': '#084C4F',
+			red: '#E4473F',
+			green: '#2D8F38',
+			'light-main': '#F1FCFF',
+			'light-light': '#D2E1E9',
+			'light-blue': '#0091DF',
+		},
+		extend: {
+			backgroundImage: {
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'gradient-conic':
+					'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+			},
+		},
+	},
+	plugins: [],
+	darkMode: 'class',
 }
 export default config

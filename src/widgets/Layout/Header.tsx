@@ -3,6 +3,7 @@ import LogoIcon from '@/entities/icons/LogoIcon'
 import SearchIcon from '@/entities/icons/SearchIcon'
 import SettingsIcon from '@/entities/icons/SettingsIcon'
 import Search from '@/features/Search'
+import ThemeSwitcher from '@/features/ThemeSwitcher'
 import { useAppDispatch, useAppSelector } from '@/hooks'
 import { searchHandler } from '@/store/slices/searchSlice'
 import Link from 'next/link'
@@ -16,7 +17,7 @@ const Header = () => {
 	const groups = useAppSelector(state => state.sheduleReducer.initialState.list)
 	const groupId = groups[groups.length - 1]?.groupId
 	return (
-		<div className='flex items-end w-full z-50 justify-between p-4 rounded-b-2xl bg-bg-header text-white'>
+		<div className='flex items-end w-full z-50 justify-between p-4 text-white rounded-b-2xl dark:bg-dark-dark bg-light-blue'>
 			<div className='flex items-end justify-between'>
 				<div className='flex items-center'>
 					<LogoIcon fill='white' width={40} />
@@ -26,7 +27,7 @@ const Header = () => {
 					Расписание
 				</div>
 			</div>
-			<div className='flex items-center justify-end gap-3 w-[23%]'>
+			<div className='flex items-center justify-end gap-6 w-[23%]'>
 				{groupId == '-1' ? (
 					''
 				) : (
@@ -37,7 +38,9 @@ const Header = () => {
 						<SearchIcon fill='white' width={30} />
 					</div>
 				)}
-
+				<div className='flex items-start justify-center relative -top-1'>
+					<ThemeSwitcher place='header' />
+				</div>
 				<div className='flex items-start justify-center relative -top-1'>
 					<Link href='settings'>
 						<SettingsIcon fill='white' width={30} />
@@ -46,7 +49,7 @@ const Header = () => {
 			</div>
 			{open ? (
 				<div className='absolute transition-all flex items-center justify-center top-0 left-0 w-full h-full bg-black bg-opacity-90 '>
-					<div className='bg-bg-main z-50 border-1 z-40 border-white overflow-hidden w-full h-full '>
+					<div className='dark:bg-dark-main bg-light-light z-50 border-1 z-40 border-white overflow-hidden w-full h-full '>
 						<Search />
 					</div>
 				</div>
