@@ -1,0 +1,134 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('@/font/stylesheet.css');
+*::-webkit-scrollbar {
+	width: 0;
+}
+
+html {
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+}
+
+body {
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Old versions of Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	/* Non-prefixed version, currently
+                                   supported by Chrome, Edge, Opera and Firefox */
+}
+
+body {
+	font-family: 'Overpass';
+}
+
+input {
+	border: 0;
+	outline: 0;
+
+	&:focus {
+		border: 0;
+		outline: 0;
+	}
+
+	&:focus-visible {
+		border: 0;
+		outline: 0;
+	}
+
+	&:focus-within {
+		border: 0;
+		outline: 0;
+	}
+}
+
+.animation-sub-group {
+	padding: 40px;
+	height: 400px;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.3);
+	position: relative;
+	animation: subGroup 0.3s ease-in-out;
+	border-radius: 16px;
+	transition: all 0.3s ease;
+}
+
+@keyframes subGroup {
+	0% {
+		bottom: -100%;
+	}
+	100% {
+		bottom: 0;
+	}
+}
+.animation-skeleton {
+	position: relative;
+	overflow: hidden;
+	.animation-skeleton-line {
+		position: absolute;
+		height: 150%;
+		width: 0px;
+		box-shadow: 10px 20px 100px 20px;
+		top: -50%;
+
+		background: #ffffff;
+		transform: rotate(-45deg);
+		transition: all 0.2s ease;
+		animation: Skeleton 0.8s ease-in-out alternate infinite;
+	}
+}
+
+@keyframes Skeleton {
+	from {
+		left: -20%;
+	}
+
+	to {
+		left: 100%;
+	}
+}
+//Animations
+.circle-loading-animation {
+	width: 100px;
+	box-shadow: 0px 0px 30px wheat;
+	animation: alternate infinite 3s circle-loading;
+	transition: all 0.4s;
+	border-radius: 100%;
+}
+
+@keyframes circle-loading {
+	0% {
+		background: #cc2053;
+		width: 50px;
+		box-shadow: 0px 0px 30px #cc2053;
+	}
+	25% {
+		background: #7c3a89;
+		width: 70px;
+		box-shadow: 0px 0px 20px #7c3a89;
+	}
+	50% {
+		background: #0a8cb2;
+		width: 50px;
+		box-shadow: 0px 0px 20px #0a8cb2;
+	}
+	75% {
+		background: #14ffec;
+		width: 70px;
+		box-shadow: 0px 0px 20px #14ffec;
+	}
+	100% {
+		background: #084c4f;
+		width: 50px;
+		box-shadow: 0px 0px 20px #084c4f;
+	}
+}
