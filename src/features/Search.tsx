@@ -7,6 +7,7 @@ import { useState } from 'react'
 
 import { facultyTypes } from '@/entities/facultyTypes'
 import Delete from '@/entities/icons/Delete'
+import { capitalize } from './functions/capitalize'
 import { dayScheduleConstructor } from './functions/getApi/scheduleArrayMiddleware'
 
 export interface IGroup {
@@ -49,7 +50,11 @@ const Search = () => {
 		if (text.length >= 1) {
 			setGroup(
 				await axios
-					.get(mode === 'development' ? localURL + text : prodURL + text)
+					.get(
+						mode === 'development'
+							? localURL + capitalize(text)
+							: prodURL + capitalize(text)
+					)
 					.then(data => data.data)
 			)
 		}

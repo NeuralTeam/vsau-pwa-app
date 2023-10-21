@@ -17,17 +17,15 @@ const Header = () => {
 	const groups = useAppSelector(state => state.sheduleReducer.initialState.list)
 	const groupId = groups[groups.length - 1]?.groupId
 	return (
-		<div className='flex items-end w-full z-50 justify-between p-4 text-white rounded-b-2xl dark:bg-dark-dark bg-light-blue'>
-			<div className='flex items-end justify-between'>
-				<div className='flex items-center'>
+		<div className='flex items-end w-full z-50 justify-between p-4 text-white rounded-b-lg dark:bg-dark-dark bg-light-blue'>
+			<div className='flex items-end gap-3 justify-between w-1/2'>
+				<div className='flex items-center justify-start'>
 					<LogoIcon fill='white' width={40} />
 				</div>
 
-				<div className='text-center text-2xl font-semibold ml-3'>
-					Расписание
-				</div>
+				<div className='text-center text-2xl font-semibold '>Расписание</div>
 			</div>
-			<div className='flex items-center justify-end gap-6 w-[23%]'>
+			<div className='flex items-center justify-end w-1/3 gap-4'>
 				{groupId == '-1' ? (
 					''
 				) : (
