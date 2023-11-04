@@ -25,9 +25,12 @@ const SheduleWidget = () => {
 	const weekData = weekInit
 	return (
 		<div className=' h-full'>
-			<div className='flex items-start mx-2 mt-0 gap-1 text-center justify-center font-semibold text'>
+			<div className='flex items-start mx-2 -mt-1 gap-1 text-center justify-center font-semibold text'>
 				<div className='dark:bg-dark-dark bg-light-blue text-white  rounded-b-lg  px-3 w-1/2 py-2'>
 					{weekData.day}
+				</div>
+				<div className='dark:bg-dark-dark bg-light-blue text-white  rounded-b-lg  px-3 w-1/2 py-2'>
+					{weekData.parityRu}
 				</div>
 			</div>
 
@@ -46,9 +49,6 @@ const SheduleWidget = () => {
 						onClick={() => weekParityHandler('numerator')}
 						className='w-full h-full relative py-1 px-3 text-center rounded-lg '
 					>
-						{weekInit.parityEng === 'numerator' && (
-							<div className='absolute left-5 top-2 rounded-full w-3 h-3 bg-dark:dark-green dark:bg-dark-green bg-light-blue'></div>
-						)}
 						Числитель
 					</div>
 
@@ -56,9 +56,6 @@ const SheduleWidget = () => {
 						onClick={() => weekParityHandler('denominator')}
 						className='w-full h-full py-1 px-3 relative text-center  border-1 border-solid'
 					>
-						{weekInit.parityEng === 'denominator' && (
-							<div className='absolute left-2 top-2 rounded-full w-3 h-3 bg-dark:dark-green dark:bg-dark-green bg-light-blue'></div>
-						)}
 						Знаменатель
 					</div>
 				</div>

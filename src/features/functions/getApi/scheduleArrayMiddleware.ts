@@ -1,8 +1,8 @@
 import { weekDays } from '@/entities/weekDay/weekDay'
 import { getGroupSchedule } from './api'
 
-export const dayScheduleConstructor = async (id: string) => {
-	const fetched: ILessons[] = await getGroupSchedule(id)
+export const dayScheduleConstructor = async (id: string, type: string) => {
+	const fetched: ILessons[] = await getGroupSchedule(id, type)
 
 	console.log(fetched.find(i => i.weekday === 1))
 
