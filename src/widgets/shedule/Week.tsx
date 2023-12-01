@@ -20,17 +20,18 @@ const Week = (activeParity: any) => {
 	// const [numerator, setNumerator] = useState<any>([])
 
 	const id = localStorage.getItem('groupId')
+	const type = localStorage.getItem('type')
 
 	useEffect(() => {
 		async function fetchData() {
-			if (id) {
-				const data = await getGroupSchedule(id)
+			if (id && type) {
+				const data = await getGroupSchedule(id, type)
 				const middleware = data
 				setScheduleData(middleware)
 			}
 		}
-		if (id) {
-			dayScheduleConstructor(id)
+		if (id && type) {
+			dayScheduleConstructor(id, type)
 		}
 
 		fetchData()
@@ -127,7 +128,7 @@ const Week = (activeParity: any) => {
 							</div>
 							{parity == 'numerator' ? (
 								<div className=' transition-all absolute bottom-0 w-full left-0  flex items-center justify-center'>
-									{weekDays[item.weekday - 1]?.lessons?.numerator.map(
+									{weekDays[item.weekday - 1]?.lessons?.numerator?.map(
 										(i, index) => (
 											<div
 												key={index}
@@ -168,9 +169,9 @@ const Week = (activeParity: any) => {
 			<div
 				className={`flex w-[100%] mt-5 gap-x-0 py-2 h-[96%] overflow-y-scroll   overflow-x-hidden relative `}
 			>
-				{weekDays.map(item => (
+				{weekDays.map((item, index) => (
 					<div
-						key={item.name}
+						key={index}
 						style={styles}
 						onTouchMove={mouseMoveHandler}
 						onTouchStart={mouseStartHandler}

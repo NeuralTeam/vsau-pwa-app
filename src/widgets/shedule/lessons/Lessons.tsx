@@ -1,8 +1,7 @@
 import WaitTextAnimate from '@/entities/Loading/WaitTextAnimate'
+import { facultyTypes } from '@/entities/facultyTypes'
 import { lessonTypes } from '@/entities/weekData/lessonTypes'
 import { weekDays } from '@/entities/weekDay/weekDay'
-import { getGroupSchedule } from '@/features/functions/getApi/api'
-import moment from 'moment'
 import { useEffect, useState } from 'react'
 
 interface ILessons {
@@ -29,6 +28,7 @@ export interface Numerator {
 	type: number
 	teacher: string
 	room: string
+	groups?: ITeacherGroups[]
 }
 
 export interface Denominator {
@@ -38,6 +38,11 @@ export interface Denominator {
 	type: number
 	teacher: string
 	room: string
+	groups?: ITeacherGroups[]
+}
+export interface ITeacherGroups {
+	group_name: string
+	group_faculty: number
 }
 
 const Lessons = ({ weekday, parity }: any) => {
@@ -46,34 +51,24 @@ const Lessons = ({ weekday, parity }: any) => {
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			setIsRender(true)
-		}, 1000)
+		}, 500)
 		return () => clearTimeout(timer)
 	})
 
-	const [scheduleData, setScheduleData] = useState<Root2[]>()
-
-	const id = localStorage.getItem('grpoupId')
-
-	useEffect(() => {
-		async function fetchData() {
-			if (id) {
-				const data = await getGroupSchedule(id || '')
-				const middleware = data.data
-				setScheduleData(middleware)
-			}
-		}
-		fetchData()
-	}, [])
+	const type = localStorage.getItem('type')
 
 	const types = lessonTypes
-	// console.log()
-	// console.log()
-	const dayNum = moment().day()
-	console.log(dayNum)
-	// const time = moment('2023-10-12 08:30:00').fromNow()
-	// console.log(time[0] === 'ч' ? time : 'Прошло')
 
-	console.log()
+	const dayLessonsArrayNum = weekDays[weekday - 1]?.lessons?.numerator?.sort(
+		function (a, b) {
+			return +a.time_start.replace(':', '') - +b.time_start.replace(':', '')
+		}
+	)
+	const dayLessonsArrayDenom = weekDays[
+		weekday - 1
+	]?.lessons?.denominator?.sort(function (a, b) {
+		return +a.time_start.replace(':', '') - +b.time_start.replace(':', '')
+	})
 
 	return (
 		<div className='w-full '>
@@ -82,7 +77,7 @@ const Lessons = ({ weekday, parity }: any) => {
 					{weekDays ? (
 						parity.activeParity == 'numerator' ? (
 							weekDays[weekday - 1].lessons !== null ? (
-								weekDays[weekday - 1]?.lessons?.numerator.map((item, index) => (
+								dayLessonsArrayNum?.map((item, index) => (
 									<div className='transition-all last:pb-52' key={index}>
 										<div className='p-2 dark:bg-dark-dark bg-light-light relative rounded-lg w-[90%] mx-auto'>
 											<div className=' w-full text-left text-sm '>
@@ -113,9 +108,30 @@ const Lessons = ({ weekday, parity }: any) => {
 												>
 													{types.find(i => i.type === item.type)?.name || 'Общ'}
 												</div>
+
 												<div className='mt-2'>
 													{item.teacher === 'NONE' ? '' : item.teacher}
 												</div>
+												{type == '1' && (
+													<div className='w-full flex items-center justify-start gap-1 text-sm flex-wrap'>
+														{item.groups.map(
+															(item: ITeacherGroups, index: any) => (
+																<div
+																	key={index}
+																	style={{
+																		borderBottomColor:
+																			facultyTypes.find(
+																				i => i.num == item.group_faculty
+																			)?.color || 'white',
+																	}}
+																	className=' border-b-2 dark:bg-dark-main bg-light-main p-2 rounded-lg '
+																>
+																	{item.group_name}
+																</div>
+															)
+														)}
+													</div>
+												)}
 											</div>
 										</div>
 									</div>
@@ -128,7 +144,7 @@ const Lessons = ({ weekday, parity }: any) => {
 								</div>
 							)
 						) : weekDays[weekday - 1].lessons !== null ? (
-							weekDays[weekday - 1]?.lessons?.denominator.map((item, index) => (
+							dayLessonsArrayDenom?.map((item, index) => (
 								<div className='transition-all last:pb-52' key={index}>
 									<div className='p-2 dark:bg-dark-dark bg-light-light relative rounded-lg w-[90%] mx-auto'>
 										<div className=' w-full text-left text-sm '>
@@ -161,6 +177,26 @@ const Lessons = ({ weekday, parity }: any) => {
 											<div className='mt-2'>
 												{item.teacher === 'NONE' ? '' : item.teacher}
 											</div>
+											{type == '1' && (
+												<div className='w-full flex items-center justify-start gap-1 text-sm flex-wrap'>
+													{item.groups.map(
+														(item: ITeacherGroups, index: any) => (
+															<div
+																key={index}
+																style={{
+																	borderBottomColor:
+																		facultyTypes.find(
+																			i => i.num == item.group_faculty
+																		)?.color || 'white',
+																}}
+																className=' border-b-2 dark:bg-dark-main bg-light-main p-2 rounded-lg '
+															>
+																{item.group_name}
+															</div>
+														)
+													)}
+												</div>
+											)}
 										</div>
 									</div>
 								</div>
