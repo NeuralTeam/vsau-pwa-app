@@ -16,6 +16,8 @@ export const dayScheduleConstructor = async (id: string, type: string) => {
 	for (const item of weekDays) {
 		item.lessons = fetched.find(day => day.weekday === item.weekday) || null
 	}
+	console.log(fetched)
+
 	// week = weekDays.map(
 	// 	(item, index) =>
 	// 		function () {

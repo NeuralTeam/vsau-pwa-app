@@ -169,9 +169,9 @@ const Week = (activeParity: any) => {
 			<div
 				className={`flex w-[100%] mt-5 gap-x-0 py-2 h-[96%] overflow-y-scroll   overflow-x-hidden relative `}
 			>
-				{weekDays.map(item => (
+				{weekDays.map((item, index) => (
 					<div
-						key={item.name}
+						key={index}
 						style={styles}
 						onTouchMove={mouseMoveHandler}
 						onTouchStart={mouseStartHandler}

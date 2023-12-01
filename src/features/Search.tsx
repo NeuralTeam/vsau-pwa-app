@@ -89,7 +89,7 @@ const Search = () => {
 						value={search}
 						type='text'
 						onChange={event => setHandler(event.target.value)}
-						placeholder='Пример: Тэ2-5'
+						placeholder={type == 0 ? 'Пример: Тэ2-5' : 'Пример: Подколзин Р.В'}
 						className='focus-within:outline-0 w-full capitalize  py-2 px-3 focus-within: focus-within:border-b-2 focus:outline-0 focus-within:border-0 dark:bg-dark-main bg-light-main bg-opacity-100 dark:text-white text-dark-dark'
 					/>
 				</div>

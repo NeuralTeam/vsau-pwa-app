@@ -23,9 +23,7 @@ const MainPage = () => {
 					type: type,
 				})
 			)
-			console.log('Get in local')
 		} else {
-			console.log('SET in local')
 			localStorage.setItem('groupId', '-1')
 			localStorage.setItem('groupName', 'None')
 			localStorage.setItem('type', '-1')

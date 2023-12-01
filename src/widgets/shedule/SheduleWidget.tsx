@@ -29,9 +29,6 @@ const SheduleWidget = () => {
 				<div className='dark:bg-dark-dark bg-light-blue text-white  rounded-b-lg  px-3 w-1/2 py-2'>
 					{weekData.day}
 				</div>
-				<div className='dark:bg-dark-dark bg-light-blue text-white  rounded-b-lg  px-3 w-1/2 py-2'>
-					{weekData.parityRu}
-				</div>
 			</div>
 
 			<div className='my-5 text-center'>
@@ -49,14 +46,30 @@ const SheduleWidget = () => {
 						onClick={() => weekParityHandler('numerator')}
 						className='w-full h-full relative py-1 px-3 text-center rounded-lg '
 					>
-						Числитель
+						<div
+							className={
+								weekData.parityRu == 'Числитель'
+									? 'py-1 z-20 border-t-2 border-azure rounded-lg'
+									: ''
+							}
+						>
+							Числитель
+						</div>
 					</div>
 
 					<div
 						onClick={() => weekParityHandler('denominator')}
-						className='w-full h-full py-1 px-3 relative text-center  border-1 border-solid'
+						className={`w-full h-full py-1 px-3 relative text-center`}
 					>
-						Знаменатель
+						<div
+							className={
+								weekData.parityRu == 'Знаменатель'
+									? ' py-1 z-20 border-t-2 border-azure rounded-lg'
+									: ''
+							}
+						>
+							Знаменатель
+						</div>
 					</div>
 				</div>
 			</div>
