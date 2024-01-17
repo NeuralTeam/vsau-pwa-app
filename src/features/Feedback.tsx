@@ -1,35 +1,22 @@
-import Delete from '@/entities/icons/Delete'
-import Link from 'next/link'
+import TelegramIcon from '@/entities/icons/TelegramIcon'
 import { useState } from 'react'
 
 const Feedback = () => {
 	const [open, setOpen] = useState<boolean>(false)
 	return (
-		<div className='  transition-all p-0 text-center text-white'>
-			{!open ? (
-				<div
-					style={{ boxShadow: '0px 0px 10px 5px #bd352e' }}
-					className='w-10 h-10 flex items-center  bg-red  mb-1 rounded-full justify-center transition-all text-2xl aspect-square text-center'
-					onClick={() => setOpen(true)}
-				>
-					!
-				</div>
-			) : (
-				<div>
-					<div className='w-72 h-10 mb-1 rounded-lg flex items-center transition-all justify-center gap-2'>
-						<Link
-							style={{ boxShadow: '0px 0px 10px 3px #bd352e' }}
-							className='bg-red px-6 py-2 rounded-lg'
-							href='https://t.me/vsau_unofficial/4 '
-						>
-							Сообщить о проблеме
-						</Link>
-						<p className='ml-2' onClick={() => setOpen(false)}>
-							<Delete fill='#bd352e' width={30} />
-						</p>
+		<div className='absolute w-screen  h-screen flex items-center text-dark-main justify-center bg-light-light dark:bg-dark-dark bg-opacity-80 z-30 left-0 top-0 p-4'>
+			<div className='w-10/12 h-1/3  bg-light-main dark:bg-dark-main rounded-lg shadow-xl p-4 text-center animation-type-changer overflow-hidden transition-all'>
+				<p className='text-lg'>У вас возникла проблема? </p>
+				<p>Напишите нам в Telegram!</p>
+				<div className='bg-light-blue text-white dark:bg-dark-dark w-10/12 mx-auto py-3 rounded-lg flex items-center justify-center gap-3 my-20'>
+					<div className='w-[40px] '>
+						<TelegramIcon />
 					</div>
+					<a href='https://t.me/vsau_unofficial' className='text-lg'>
+						@vsau_unofficial
+					</a>
 				</div>
-			)}
+			</div>
 		</div>
 	)
 }

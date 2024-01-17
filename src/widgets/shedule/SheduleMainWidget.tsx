@@ -1,13 +1,15 @@
 'use client'
 import SearchIcon from '@/entities/icons/SearchIcon'
 import { useAppDispatch, useAppSelector } from '@/hooks'
-import { searchHandler } from '@/store/slices/searchSlice'
+import { useModalSearchHandler } from '@/store/zustand.store'
 import SheduleWidget from '@/widgets/shedule/SheduleWidget'
 
 const SheduleMainWidget = () => {
 	const dispatch = useAppDispatch()
 	const groups = useAppSelector(state => state.sheduleReducer.initialState.list)
 	const groupId = groups[groups.length - 1]?.groupId
+
+	const { openM: openSearchModal } = useModalSearchHandler()
 
 	return (
 		<div>
@@ -19,7 +21,7 @@ const SheduleMainWidget = () => {
 							<p>Поиск</p>
 							<p
 								className='flex items-start justify-end w-full'
-								onClick={() => dispatch(searchHandler())}
+								onClick={() => openSearchModal()}
 							>
 								<SearchIcon fill={'white'} width={30} />
 							</p>

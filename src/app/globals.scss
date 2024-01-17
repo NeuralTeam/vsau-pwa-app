@@ -59,7 +59,7 @@ input {
 	position: relative;
 	animation: subGroup 0.3s ease-in-out;
 	border-radius: 16px;
-	transition: all 0.3s ease;
+	transition: all 0.1s ease;
 }
 
 @keyframes subGroup {
@@ -118,17 +118,32 @@ input {
 	}
 	50% {
 		background: #0a8cb2;
-		width: 50px;
+		width: 120px;
 		box-shadow: 0px 0px 20px #0a8cb2;
 	}
 	75% {
 		background: #14ffec;
-		width: 70px;
+		width: 200px;
 		box-shadow: 0px 0px 20px #14ffec;
 	}
 	100% {
 		background: #084c4f;
-		width: 50px;
+		width: 300px;
 		box-shadow: 0px 0px 20px #084c4f;
+	}
+}
+.animation-type-changer {
+	animation: animate-type-changer 0.5s ease-in-out;
+	position: relative;
+}
+@keyframes animate-type-changer {
+	from {
+		top: 100%;
+		left: 100%;
+	}
+
+	to {
+		top: 0;
+		left: 0;
 	}
 }
