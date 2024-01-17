@@ -3,7 +3,6 @@ import LogoIcon from '@/entities/icons/LogoIcon'
 import SearchIcon from '@/entities/icons/SearchIcon'
 import Feedback from '@/features/Feedback'
 import Search from '@/features/Search'
-import ThemeSwitcher from '@/features/ThemeSwitcher'
 import { useAppDispatch, useAppSelector } from '@/hooks'
 import { useModalFeedback, useModalSearchHandler } from '@/store/zustand.store'
 import { useState } from 'react'
@@ -35,9 +34,9 @@ const Header = () => {
 				<div className='' onClick={() => openSearchHandler()}>
 					<SearchIcon fill={'white'} width={30} />
 				</div>
-				<div className='flex items-start justify-center relative -top-1'>
+				{/* <div className='flex items-start justify-center relative -top-1'>
 					<ThemeSwitcher place='header' />
-				</div>
+				</div> */}
 			</div>
 			<div className='absolute w-full bg-dark-dark left-0 top-0'>
 				{isOpenFeedback && <Feedback />}
