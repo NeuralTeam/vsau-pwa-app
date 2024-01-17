@@ -38,7 +38,7 @@ const Header = () => {
 					<ThemeSwitcher place='header' />
 				</div> */}
 			</div>
-			<div className='absolute w-full bg-dark-dark left-0 top-0'>
+			<div className='absolute w-full  left-0 top-0'>
 				{isOpenFeedback && <Feedback />}
 			</div>
 
