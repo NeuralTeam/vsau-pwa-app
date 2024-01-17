@@ -12,7 +12,9 @@ package-lock.json
 /node_modules
 /venv
 .env
+.env.production
 /out
+/dist
 .next
 
 # Binary

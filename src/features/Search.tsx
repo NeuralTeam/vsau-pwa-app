@@ -37,10 +37,6 @@ const Search = () => {
 	const { closeM: closeModal } = useModalSearchHandler()
 	// const [activeType] = useState(0)
 
-	const mode = process.env.NODE_ENV
-	const localURL = 'http://localhost:8000/api/v1/schedule/groups?search='
-	const prodURL =
-		'https://schedule.neuralteam.ru/api/v1/schedule/search?type=1&data='
 	console.log(type.toString())
 	const groupHandler = (id: string, name: string) => {
 		setGroupId(id)
@@ -65,12 +61,7 @@ const Search = () => {
 		if (text.length >= 1) {
 			setGroup(
 				await axios
-					.get(
-						'https://schedule.neuralteam.ru/api/v1/schedule/search?type=' +
-							type +
-							'&data=' +
-							text
-					)
+					.get(`${process.env.NEXT_PUBLIC_API_DOMAIN}/api/v1/schedule/search?type=${type}&data=${text}`)
 					.then(data => data.data)
 			)
 		}
