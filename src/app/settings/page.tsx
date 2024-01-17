@@ -1,7 +1,6 @@
 'use client'
 import ResetIcon from '@/entities/icons/ResetIcon'
 import ThemeSwitcher from '@/features/ThemeSwitcher'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
@@ -19,19 +18,15 @@ const Settings = () => {
 	return (
 		<div className='w-full h-[100dvh] dark:bg-dark-main bg-light-main light:bg-white  text-white overflow-hidden p-5'>
 			<div className=''>
-				<div className='px-0  py-2 w-1/3 dark:text-white text-dark-dark text-left font-semibold rounded-lg'>
-					<Link href='/'>&#8592; Назад</Link>
-				</div>
-
 				<p className='mt-14 mb-4 text-center text-dark-dark dark:text-white text-3xl'>
 					Настройки
 				</p>
 				<div className='mx-3'>
 					<div className=''>
-						<div className='rounded-lg w-full overflow-hidden bg-light-light dark:bg-dark-dark px-2 '>
+						<div className='rounded-lg w-full overflow-hidden bg-light-light dark:bg-dark-dark px-0 '>
 							<div
 								style={{ gridTemplateColumns: '70% 30%' }}
-								className='text-lg border-b-[0.5px]  overflow-hidden dark:border-y-[#f0f0f0] border-y-dark-dark h-[70px] font-semibold text-dark-dark dark:text-white grid items-center justify-start text-left py-2 '
+								className='text-lg border-b-[0.5px]  overflow-hidden dark:border-y-[#5a5a5a] border-y-dark-dark h-[55px] font-semibold text-dark-dark dark:text-white grid items-center justify-start text-left py-0 px-6 '
 							>
 								<p>Сброс приложения</p>
 								<div
@@ -43,7 +38,7 @@ const Settings = () => {
 							</div>
 
 							<div
-								className='w-full grid  h-[70px]  dark:border-b-white border-y-dark-dark'
+								className='text-lg   overflow-hidden h-[55px] font-semibold text-dark-dark dark:text-white grid items-center justify-start text-left py-0 px-6 '
 								style={{ gridTemplateColumns: '70% 30%' }}
 							>
 								<div className='flex items-center text-left dark:text-white text-dark-dark text-lg justify-start'>
