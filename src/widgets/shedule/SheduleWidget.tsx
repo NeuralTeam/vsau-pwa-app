@@ -49,7 +49,7 @@ const SheduleWidget = () => {
 						<div
 							className={
 								weekData.parityRu == 'Числитель'
-									? 'py-1.5 z-20 bg-dark-green rounded-[4px] bg-opacity-30'
+									? 'py-1.5 z-20 bg-dark-green rounded-[6px] bg-opacity-30'
 									: ''
 							}
 						>

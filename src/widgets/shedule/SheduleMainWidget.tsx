@@ -8,7 +8,7 @@ const SheduleMainWidget = () => {
 	const dispatch = useAppDispatch()
 	const groups = useAppSelector(state => state.sheduleReducer.initialState.list)
 	const groupId = groups[groups.length - 1]?.groupId
-
+	const theme = localStorage.getItem('theme')
 	const { openM: openSearchModal } = useModalSearchHandler()
 
 	return (
@@ -17,14 +17,19 @@ const SheduleMainWidget = () => {
 				<div className='className="w-full h-[90dvh] font-semibold text-2xl flex items-center justify-center'>
 					<div className='px-4 '>
 						<div className='font-normal'>Выберете группу</div>
-						<div className='flex items-center  w-9/12 justify-between py-3 px-5 dark:bg-dark-dark bg-light-light bg-opacity-70 rounded-lg mx-auto my-4 font-normal text-xl '>
-							<p>Поиск</p>
-							<p
-								className='flex items-start justify-end w-full'
+						<div className='flex flex-col gap-2 items-center  w-6/12 justify-between py-3 px-5 dark:bg-dark-dark bg-light-light bg-opacity-70 rounded-lg mx-auto my-4 font-normal text-xl '>
+							<div
+								className='flex items-start aspect-square justify-center'
 								onClick={() => openSearchModal()}
 							>
-								<SearchIcon fill={'white'} width={30} />
-							</p>
+								<SearchIcon
+									fill={
+										theme == 'dark' || undefined ? 'white' : 'rgb(33 33 33)'
+									}
+									width={30}
+								/>
+							</div>
+							<p>Поиск</p>
 						</div>
 					</div>
 				</div>

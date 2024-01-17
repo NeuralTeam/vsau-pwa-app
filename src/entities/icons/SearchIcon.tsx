@@ -13,7 +13,7 @@ const SearchIcon = ({ width, fill, opacity }: IIcon) => {
 					stroke={fill}
 					stroke-linecap='round'
 					stroke-linejoin='round'
-					stroke-width='2'
+					stroke-width='2.5'
 				/>
 			</svg>
 		</div>
