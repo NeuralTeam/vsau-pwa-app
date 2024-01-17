@@ -1,12 +1,12 @@
 'use client'
 import { useAppDispatch } from '@/hooks'
-import { closeSearch } from '@/store/slices/searchSlice'
 import { getGroup } from '@/store/slices/sheduleCurrentSlice'
 import axios from 'axios'
 import { useState } from 'react'
 
 import { facultyTypes } from '@/entities/facultyTypes'
 import Delete from '@/entities/icons/Delete'
+import { useModalSearchHandler } from '@/store/zustand.store'
 import { dayScheduleConstructor } from './functions/getApi/scheduleArrayMiddleware'
 
 export interface IGroup {
@@ -34,18 +34,22 @@ const Search = () => {
 	const [search, setSearch] = useState<string>('')
 	const [group, setGroup] = useState<IGroup[]>()
 	const [groupName, setGroupName] = useState<string>()
+	const { closeM: closeModal } = useModalSearchHandler()
 	// const [activeType] = useState(0)
 
 	const mode = process.env.NODE_ENV
 	const localURL = 'http://localhost:8000/api/v1/schedule/groups?search='
 	const prodURL =
-		'https://schedule.neuralteam.ru/api/v1/schedule/search?type=1&data=П'
+		'https://schedule.neuralteam.ru/api/v1/schedule/search?type=1&data='
 	console.log(type.toString())
 	const groupHandler = (id: string, name: string) => {
 		setGroupId(id)
 		dayScheduleConstructor(id, type.toString())
 		let typeString = type.toString()
-		dispatch(closeSearch())
+		localStorage.setItem('groupId', id)
+		localStorage.setItem('groupName', name)
+		localStorage.setItem('type', type.toString())
+		closeModal()
 		dispatch(
 			getGroup({
 				groupId: id,
@@ -76,10 +80,10 @@ const Search = () => {
 	}
 
 	return (
-		<div className='flex items-center dark:bg-dark-main h-screen bg-light-main text-black overflow-hidden max-h-screen justify-center w-full p-4'>
+		<div className='flex z-50 items-center dark:bg-dark-main h-screen bg-light-main text-black overflow-hidden max-h-screen justify-center w-full p-4'>
 			<div
 				className='absolute cursor-pointer right-3 top-3 font-semibold text-red text-3xl'
-				onClick={() => dispatch(closeSearch())}
+				onClick={closeModal}
 			>
 				<Delete width={40} fill='#E4473F' />
 			</div>

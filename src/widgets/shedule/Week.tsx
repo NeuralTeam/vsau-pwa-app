@@ -167,7 +167,7 @@ const Week = (activeParity: any) => {
 			)}
 
 			<div
-				className={`flex w-[100%] mt-5 gap-x-0 py-2 h-[96%] overflow-y-scroll   overflow-x-hidden relative `}
+				className={`flex w-[100%] mt-5 gap-x-0 py-2 h-[110%] overflow-y-scroll   overflow-x-hidden relative `}
 			>
 				{weekDays.map((item, index) => (
 					<div
@@ -178,9 +178,9 @@ const Week = (activeParity: any) => {
 						className='transition-all duration-300 ease-in-out h-full w-full'
 					>
 						<div
-							className={`transition-all flex items-start justify-start ease-in-out  h-[95%] relative  bottom-0 max-w-[520px] w-[100dvw] overflow-x-hidden`}
+							className={`transition-all flex items-start justify-start ease-in-out  h-full relative  bottom-0  w-[100dvw] overflow-x-hidden`}
 						>
-							<div className='w-full'>
+							<div className='w-screen'>
 								<Lessons weekday={item.weekday} parity={activeParity} />
 							</div>
 						</div>

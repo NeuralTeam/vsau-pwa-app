@@ -2,7 +2,6 @@
 
 import { useAppDispatch } from '@/hooks'
 import { getGroup } from '@/store/slices/sheduleCurrentSlice'
-import Header from '@/widgets/Layout/Header'
 import SheduleMainWidget from '@/widgets/shedule/SheduleMainWidget'
 
 const MainPage = () => {
@@ -42,9 +41,6 @@ const MainPage = () => {
 	}
 	return (
 		<div>
-			<div className=''>
-				<Header />
-			</div>
 			<div className=''></div>
 			<div className='z-10 h-full'>
 				<SheduleMainWidget />

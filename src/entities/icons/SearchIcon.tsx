@@ -1,20 +1,22 @@
-const SearchIcon = ({ width, fill }: IIcon) => {
+const SearchIcon = ({ width, fill, opacity }: IIcon) => {
 	return (
-		<svg
-			width={width}
-			height={width}
-			viewBox='0 0 24 24'
-			fill='none'
-			xmlns='http://www.w3.org/2000/svg'
-		>
-			<path
-				d='M11 6C13.7614 6 16 8.23858 16 11M16.6588 16.6549L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z'
-				stroke={fill}
-				strokeWidth='2'
-				strokeLinecap='round'
-				strokeLinejoin='round'
-			/>
-		</svg>
+		<div style={{ opacity }} className='transition-all'>
+			<svg
+				viewBox='0 0 24 24'
+				height={width}
+				fill='none'
+				width={width}
+				xmlns='http://www.w3.org/2000/svg'
+			>
+				<path
+					d='M20 20L15.9497 15.9497M15.9497 15.9497C17.2165 14.683 18 12.933 18 11C18 7.13401 14.866 4 11 4C7.13401 4 4 7.13401 4 11C4 14.866 7.13401 18 11 18C12.933 18 14.683 17.2165 15.9497 15.9497Z'
+					stroke={fill}
+					stroke-linecap='round'
+					stroke-linejoin='round'
+					stroke-width='2'
+				/>
+			</svg>
+		</div>
 	)
 }
 export default SearchIcon

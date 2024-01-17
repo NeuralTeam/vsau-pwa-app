@@ -1,5 +1,10 @@
 'use client'
-import Provider from '@/widgets/Layout/Provider'
+import store from '@/store'
+import Header from '@/widgets/Layout/Header'
+import MobileNavbar from '@/widgets/Layout/MobileNavbar/MobileNavbar'
+import ProviderLayoutMain from '@/widgets/Layout/ProviderLayoutMain'
+import { useEffect, useState } from 'react'
+import { Provider } from 'react-redux'
 import './globals.scss'
 
 export default function RootLayout({
@@ -7,6 +12,24 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode
 }) {
+	const [domLoaded, setDomLoaded] = useState(false)
+
+	useEffect(() => {
+		if (localStorage.getItem('theme')) {
+			console.debug('getLocal', localStorage.getItem('theme'))
+		} else {
+			localStorage.setItem('theme', 'dark')
+			console.debug('set', localStorage.getItem('theme'))
+		}
+
+		let timeFunc = setTimeout(() => {
+			setDomLoaded(true)
+		}, 1500)
+
+		return () => {
+			clearTimeout(timeFunc)
+		}
+	}, [])
 	return (
 		<html lang='ru'>
 			<head>
@@ -52,8 +75,14 @@ export default function RootLayout({
 					content='https://sun9-19.userapi.com/impg/0Qm0NMqt1f7sq-Dg-EkBgLKXnFSBlvYdlx7r5w/20aEnT_4XuI.jpg?size=807x571&quality=95&sign=0f2c513e3c0abea62d639d5d0649375c&c_uniq_tag=Kzr1oGpxrXQQ-QtUvohYe0urwxRycpDW7kwBuqhcNp4&type=album'
 				/>
 			</head>
-			<body className='flex  left-0 top-0 max-w-[550px] items-center justify-center dark:bg-dark-main bg-light-light'>
-				<Provider>{children}</Provider>
+			<body className=' left-0 top-0  mx-auto  dark:bg-dark-main bg-light-light'>
+				<Provider store={store}>
+					<ProviderLayoutMain>
+						<Header />
+						{children}
+						<MobileNavbar />
+					</ProviderLayoutMain>
+				</Provider>
 			</body>
 		</html>
 	)
