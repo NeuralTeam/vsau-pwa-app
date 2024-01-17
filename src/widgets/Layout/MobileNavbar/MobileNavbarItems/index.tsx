@@ -3,7 +3,6 @@ import { usePathname } from 'next/navigation'
 import { ReactNode, useState } from 'react'
 
 import ScheduleIcon from '@/entities/icons/ScheduleIcon'
-import SearchIcon from '@/entities/icons/SearchIcon'
 import SettingsIcon from '@/entities/icons/SettingsIcon'
 import WarningIcon from '@/entities/icons/WarningIcon'
 import SearchTypeChanger from '@/features/SearchTypeChanger'
@@ -80,19 +79,7 @@ const MobileNavbarItems = () => {
 			isActive:
 				pathname === '/' && !isOpenSearch && !isOpenFeedback ? true : false,
 		},
-		{
-			title: 'Поиск',
-			icon: (
-				<div className='relative' onClick={() => openSearchHandler()}>
-					<SearchIcon
-						opacity={isOpenSearch ? active_opacity : default_opacity}
-						fill={'white'}
-						width={30}
-					/>
-				</div>
-			),
-			isActive: isOpenSearch,
-		},
+
 		{
 			title: 'Настройки',
 			icon: (
@@ -122,7 +109,7 @@ const MobileNavbarItems = () => {
 					: false,
 		},
 		{
-			title: 'Проблема',
+			title: 'Помощь',
 			icon: (
 				<div className='' onClick={openFeedbackHandler}>
 					<WarningIcon
@@ -137,7 +124,7 @@ const MobileNavbarItems = () => {
 	]
 
 	return (
-		<div className={`flex items-start justify-between gap-0 px-2 relative`}>
+		<div className={`flex items-start justify-between gap-0 px-5 relative`}>
 			{navbarItemsData.map((item, index) => (
 				<div
 					className='transition-all text-white'

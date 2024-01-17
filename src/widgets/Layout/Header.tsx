@@ -1,8 +1,8 @@
 'use client'
 import LogoIcon from '@/entities/icons/LogoIcon'
+import SearchIcon from '@/entities/icons/SearchIcon'
 import Feedback from '@/features/Feedback'
 import Search from '@/features/Search'
-import ThemeSwitcher from '@/features/ThemeSwitcher'
 import { useAppDispatch, useAppSelector } from '@/hooks'
 import { useModalFeedback, useModalSearchHandler } from '@/store/zustand.store'
 import { useState } from 'react'
@@ -15,6 +15,7 @@ const Header = () => {
 	const { isOpen } = useModalSearchHandler()
 
 	const { isOpen: isOpenFeedback } = useModalFeedback()
+	const { openM: openSearchHandler } = useModalSearchHandler()
 
 	console.info(isOpenFeedback)
 
@@ -29,10 +30,13 @@ const Header = () => {
 
 				<div className='text-center text-2xl font-semibold '>Расписание</div>
 			</div>
-			<div className='flex items-center justify-end w-1/3 gap-4'>
-				<div className='flex items-start justify-center relative -top-1'>
-					<ThemeSwitcher place='header' />
+			<div className='flex items-baseline justify-end w-1/3 gap-4'>
+				<div className='' onClick={() => openSearchHandler()}>
+					<SearchIcon fill={'white'} width={30} />
 				</div>
+				{/* <div className='flex items-start justify-center relative -top-1'>
+					<ThemeSwitcher place='header' />
+				</div> */}
 			</div>
 			<div className='absolute w-full bg-dark-dark left-0 top-0'>
 				{isOpenFeedback && <Feedback />}
