@@ -1,6 +1,7 @@
 # Commons
 /.git
 .DS_Store
+package-lock.json
 
 # IDE
 /.idea
