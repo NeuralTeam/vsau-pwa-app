@@ -20,18 +20,17 @@ const Week = (activeParity: any) => {
 	// const [numerator, setNumerator] = useState<any>([])
 
 	const id = localStorage.getItem('groupId')
-	const type = localStorage.getItem('type')
 
 	useEffect(() => {
 		async function fetchData() {
-			if (id && type) {
-				const data = await getGroupSchedule(id, type)
+			if (id) {
+				const data = await getGroupSchedule(id)
 				const middleware = data
 				setScheduleData(middleware)
 			}
 		}
-		if (id && type) {
-			dayScheduleConstructor(id, type)
+		if (id) {
+			dayScheduleConstructor(id)
 		}
 
 		fetchData()
@@ -128,7 +127,7 @@ const Week = (activeParity: any) => {
 							</div>
 							{parity == 'numerator' ? (
 								<div className=' transition-all absolute bottom-0 w-full left-0  flex items-center justify-center'>
-									{weekDays[item.weekday - 1]?.lessons?.numerator?.map(
+									{weekDays[item.weekday - 1]?.lessons?.numerator.map(
 										(i, index) => (
 											<div
 												key={index}
@@ -167,20 +166,20 @@ const Week = (activeParity: any) => {
 			)}
 
 			<div
-				className={`flex w-[100%] mt-5 gap-x-0 py-2 h-[110%] overflow-y-scroll   overflow-x-hidden relative `}
+				className={`flex w-[100%] mt-5 gap-x-0 py-2 h-[96%] overflow-y-scroll   overflow-x-hidden relative `}
 			>
-				{weekDays.map((item, index) => (
+				{weekDays.map(item => (
 					<div
-						key={index}
+						key={item.name}
 						style={styles}
 						onTouchMove={mouseMoveHandler}
 						onTouchStart={mouseStartHandler}
 						className='transition-all duration-300 ease-in-out h-full w-full'
 					>
 						<div
-							className={`transition-all flex items-start justify-start ease-in-out  h-full relative  bottom-0  w-[100dvw] overflow-x-hidden`}
+							className={`transition-all flex items-start justify-start ease-in-out  h-[95%] relative  bottom-0 max-w-[520px] w-[100dvw] overflow-x-hidden`}
 						>
-							<div className='w-screen'>
+							<div className='w-full'>
 								<Lessons weekday={item.weekday} parity={activeParity} />
 							</div>
 						</div>

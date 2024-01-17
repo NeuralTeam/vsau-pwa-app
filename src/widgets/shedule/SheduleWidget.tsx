@@ -25,7 +25,7 @@ const SheduleWidget = () => {
 	const weekData = weekInit
 	return (
 		<div className=' h-full'>
-			<div className='flex items-start mx-2 -mt-1 gap-1 text-center justify-center font-semibold text'>
+			<div className='flex items-start mx-2 mt-0 gap-1 text-center justify-center font-semibold text'>
 				<div className='dark:bg-dark-dark bg-light-blue text-white  rounded-b-lg  px-3 w-1/2 py-2'>
 					{weekData.day}
 				</div>
@@ -34,11 +34,11 @@ const SheduleWidget = () => {
 			<div className='my-5 text-center'>
 				<span className='text-3xl font-semibold'>{groupName}</span>
 			</div>
-			<div className='w-10/12 mx-auto  my-5  relative '>
+			<div className='w-10/12 mx-auto  my-5 py-1  relative '>
 				{/* <div className='absolute w-full h-[36px] dark:bg-dark-dark bg-light-light left-0 top-0 opacity-25'></div> */}
 				<div
-					className={`absolute  rounded-lg w-1/2 h-full top-0 ${
-						activeParity === 'numerator' ? 'left-[1%]' : 'left-[51%]'
+					className={`absolute rounded-lg w-1/2 h-full top-0 ${
+						activeParity === 'numerator' ? 'left-[0%]' : 'left-[50%]'
 					}   text-center dark:bg-dark-dark bg-light-light transition-all duration-200 d`}
 				></div>
 				<div className=' w-full z-20 flex  items-center text-center relative gap-0 justify-between h-full'>
@@ -46,30 +46,20 @@ const SheduleWidget = () => {
 						onClick={() => weekParityHandler('numerator')}
 						className='w-full h-full relative py-1 px-3 text-center rounded-lg '
 					>
-						<div
-							className={
-								weekData.parityRu == 'Числитель'
-									? 'py-1.5 z-20 bg-dark-green rounded-[4px] bg-opacity-30'
-									: ''
-							}
-						>
-							Числитель
-						</div>
+						{weekInit.parityEng === 'numerator' && (
+							<div className='absolute left-5 top-2 rounded-full w-3 h-3 bg-dark:dark-green dark:bg-dark-green bg-light-blue'></div>
+						)}
+						Числитель
 					</div>
 
 					<div
 						onClick={() => weekParityHandler('denominator')}
-						className={`w-full h-full  relative text-center`}
+						className='w-full h-full py-1 px-3 relative text-center  border-1 border-solid'
 					>
-						<div
-							className={
-								weekData.parityRu == 'Знаменатель'
-									? 'py-1.5 z-20 bg-dark-green rounded-[4px] bg-opacity-30'
-									: ''
-							}
-						>
-							Знаменатель
-						</div>
+						{weekInit.parityEng === 'denominator' && (
+							<div className='absolute left-2 top-2 rounded-full w-3 h-3 bg-dark:dark-green dark:bg-dark-green bg-light-blue'></div>
+						)}
+						Знаменатель
 					</div>
 				</div>
 			</div>

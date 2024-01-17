@@ -17,7 +17,7 @@ const Settings = () => {
 		setResetAlert(bool)
 	}
 	return (
-		<div className='w-full h-[100dvh] dark:bg-dark-main bg-light-main light:bg-white  text-white overflow-hidden p-5'>
+		<div className='w-[524px] h-[100dvh] dark:bg-dark-main bg-light-main light:bg-white  text-white overflow-hidden p-5'>
 			<div className=''>
 				<div className='px-0  py-2 w-1/3 dark:text-white text-dark-dark text-left font-semibold rounded-lg'>
 					<Link href='/'>&#8592; Назад</Link>
@@ -41,7 +41,14 @@ const Settings = () => {
 									<ResetIcon fill={`white`} width={20} />
 								</div>
 							</div>
-
+							<div className='absolute bottom-10 w-full flex items-center justify-center'>
+								<Link
+									href='https://t.me/vsau_unofficial'
+									className='mx-auto text-center  bg-red rounded-lg px-6 py-2'
+								>
+									Сообщить о проблеме
+								</Link>
+							</div>
 							<div
 								className='w-full grid  h-[70px]  dark:border-b-white border-y-dark-dark'
 								style={{ gridTemplateColumns: '70% 30%' }}
