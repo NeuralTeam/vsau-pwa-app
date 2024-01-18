@@ -22,7 +22,7 @@ const Header = () => {
 	const groups = useAppSelector(state => state.sheduleReducer.initialState.list)
 	const groupId = groups[groups.length - 1]?.groupId
 	return (
-		<header className=' flex items-end w-screen z-50 justify-between p-4 text-white rounded-b-lg dark:bg-dark-dark bg-light-blue'>
+		<header className=' flex items-center w-screen z-50 justify-between p-4 text-white rounded-b-lg dark:bg-dark-dark bg-light-blue'>
 			<div className='flex items-end gap-3 justify-start w-1/2'>
 				<div className='flex items-center justify-start'>
 					<LogoIcon fill='white' width={40} />
@@ -31,16 +31,18 @@ const Header = () => {
 				<div className='text-center text-2xl font-semibold '>Расписание</div>
 			</div>
 			<div className='flex items-baseline justify-end w-1/3 gap-4'>
-				<div className='' onClick={() => openSearchHandler()}>
-					<SearchIcon fill={'white'} width={30} />
-				</div>
+				{groupId !== '-1' && (
+					<div className='' onClick={() => openSearchHandler()}>
+						<SearchIcon fill={'white'} width={35} />
+					</div>
+				)}
+
 				{/* <div className='flex items-start justify-center relative -top-1'>
 					<ThemeSwitcher place='header' />
 				</div> */}
 			</div>
-			<div className='absolute w-full bg-dark-dark left-0 top-0'>
-				{isOpenFeedback && <Feedback />}
-			</div>
+
+			{isOpenFeedback && <Feedback />}
 
 			{isOpen ? (
 				<div className='absolute transition-all flex items-center justify-center top-0 left-0 w-full h-full bg-black bg-opacity-90 '>
