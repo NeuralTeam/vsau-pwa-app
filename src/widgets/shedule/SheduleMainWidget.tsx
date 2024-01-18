@@ -17,15 +17,13 @@ const SheduleMainWidget = () => {
 				<div className='className="w-full h-[90dvh] font-semibold text-2xl flex items-center justify-center'>
 					<div className='px-4 '>
 						<div className='font-normal'>Выберете группу</div>
-						<div className='flex flex-col gap-2 items-center  w-6/12 justify-between py-3 px-5 dark:bg-dark-dark bg-light-light bg-opacity-70 rounded-lg mx-auto my-4 font-normal text-xl '>
-							<div
-								className='flex items-start aspect-square justify-center'
-								onClick={() => openSearchModal()}
-							>
+						<div
+							onClick={() => openSearchModal()}
+							className='flex flex-col gap-2 items-center  w-6/12 justify-between py-3 px-5 dark:bg-dark-dark bg-light-light bg-opacity-70 rounded-lg mx-auto my-4 font-normal text-xl '
+						>
+							<div className='flex items-start aspect-square justify-center'>
 								<SearchIcon
-									fill={
-										theme == 'dark' || undefined ? 'white' : 'rgb(33 33 33)'
-									}
+									fill={theme !== 'white' ? 'white' : 'rgb(33 33 33)'}
 									width={30}
 								/>
 							</div>
