@@ -10,14 +10,12 @@ import { useState } from 'react'
 const Header = () => {
 	const open = useAppSelector(store => store.searchReducer.open)
 	const dispatch = useAppDispatch()
-	const [openSearch, setOpenSearch] = useState(open)
+	const [isOpenErrorAlert, setIsOpenErrorAlert] = useState(open)
 
 	const { isOpen } = useModalSearchHandler()
 
 	const { isOpen: isOpenFeedback } = useModalFeedback()
 	const { openM: openSearchHandler } = useModalSearchHandler()
-
-	console.info(isOpenFeedback)
 
 	const groups = useAppSelector(state => state.sheduleReducer.initialState.list)
 	const groupId = groups[groups.length - 1]?.groupId

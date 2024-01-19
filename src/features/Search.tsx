@@ -59,11 +59,14 @@ const Search = () => {
 		setSearch(text)
 
 		if (text.length >= 1) {
-			setGroup(
+			if (navigator.onLine) {
 				await axios
-					.get(`${process.env.NEXT_PUBLIC_API_DOMAIN}/api/v1/schedule/search?type=${type}&data=${text}`)
-					.then(data => data.data)
-			)
+					.get(
+						`${process.env.NEXT_PUBLIC_API_DOMAIN}/api/v1/schedule/search?type=${type}&data=${text}`
+					)
+					.then(response => setGroup(response.data))
+			} else {
+			}
 		}
 
 		setChangeGroup(true)
