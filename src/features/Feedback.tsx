@@ -6,7 +6,7 @@ const Feedback = () => {
 	return (
 		<div
 			className='absolute w-screen  h-screen flex items-center dark:text-white
-		 text-dark-main justify-center bg-light-light dark:bg-dark-dark dark:bg-opacity-80 bg-opacity-80 z-30 left-0 top-0 p-4'
+		 text-dark-main justify-center bg-light-light dark:bg-dark-dark  z-30 left-0 top-0 p-4'
 		>
 			<div className='w-10/12 h-1/3  bg-light-main dark:bg-dark-main rounded-lg shadow-xl p-4 text-center animation-type-changer overflow-hidden transition-all'>
 				<p className='text-lg'>У вас возникла проблема? </p>
