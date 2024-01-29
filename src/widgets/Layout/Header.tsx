@@ -1,4 +1,5 @@
 'use client'
+import Delete from '@/entities/icons/Delete'
 import LogoIcon from '@/entities/icons/LogoIcon'
 import SearchIcon from '@/entities/icons/SearchIcon'
 import Feedback from '@/features/Feedback'
@@ -21,6 +22,16 @@ const Header = () => {
 	const groupId = groups[groups.length - 1]?.groupId
 	return (
 		<header className=' flex items-center w-screen z-50 justify-between p-4 text-white rounded-b-lg dark:bg-dark-dark bg-light-blue'>
+			{!navigator.onLine && (
+				<div className='absolute p-4 flex items-center justify-center gap-10 w-full h-full bg-red top-0 left-0 mx-auto'>
+					<p>Нет интернета</p>
+
+					<div className=''>
+						<Delete fill='white' width={30} />
+					</div>
+				</div>
+			)}
+
 			<div className='flex items-end gap-3 justify-start w-1/2'>
 				<div className='flex items-center justify-start'>
 					<LogoIcon fill='white' width={40} />
