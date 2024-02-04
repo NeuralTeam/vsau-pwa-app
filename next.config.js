@@ -1,16 +1,11 @@
+const { version } = require("./package.json");
+
 /** @type {import('next').NextConfig} */
+const nextConfig = {
+    output: "export",
+    env: {
+        VERSION: version
+    }
+};
 
-const runtimeCaching = require('next-pwa/cache')
-
-const withPWA = require('next-pwa')({
-	runtimeCaching,
-	buildExcludes: [/middleware-manifest.json$/],
-	register: true,
-	skipWaiting: true,
-})
-
-const nextConfig = withPWA({
-	output: 'export',
-})
-
-module.exports = nextConfig
+module.exports = nextConfig;
