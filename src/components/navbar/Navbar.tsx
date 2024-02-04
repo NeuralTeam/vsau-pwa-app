@@ -1,8 +1,8 @@
 "use client";
 
+import { INavbarItem, NavbarItem } from "@/components/navbar/NavbarItem";
 import ScheduleIcon from "@/entities/icons/ScheduleIcon";
 import SettingsIcon from "@/entities/icons/SettingsIcon";
-import { INavbarItem, NavbarItem } from "@/components/navbar/NavbarItem";
 import WarningIcon from "@/entities/icons/WarningIcon";
 import { observer } from "mobx-react-lite";
 
@@ -27,7 +27,7 @@ const Navbar = observer(() => {
 
     return (
         <footer className="absolute bottom-0 z-50 h-[90px] w-full rounded-t-lg bg-light-blue bg-opacity-90 dark:bg-dark-dark dark:bg-opacity-90">
-            <div className="relative top-2 flex items-start justify-between gap-0 px-5">
+            <div className="relative -top-1 grid grid-cols-3 items-start justify-center">
                 {navbarItemsData.map((item, index) => (
                     <div className="text-white transition-all" key={index}>
                         <NavbarItem {...item} />
